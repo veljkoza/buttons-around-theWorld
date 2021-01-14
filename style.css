@@ -1,0 +1,158 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  /* background-image: linear-gradient(rgb(115, 43, 197), rgb(75, 15, 143)); */
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: url("https://images.hdqwalls.com/download/spotlight-dark-5k-ci-1680x1050.jpg") center center no-repeat;
+  background-size: cover;
+}
+.btns-container {
+  display: flex;
+  position: relative;
+  left: 0;
+  height: 100%;
+  transition: all ease-in-out 0.2s;
+}
+
+.btn-container {
+  height: 100%;
+  min-width: 100vw;
+  display: grid;
+  place-items: center;
+}
+
+.nav-btns {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  top: calc(50% - 25px);
+  height: 70px;
+  padding: 0 2.5rem;
+}
+
+.nav-btns button {
+  height: 100%;
+  width: 70px;
+  padding: 0.6rem;
+  z-index: 10;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+.nav-btns button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgb(25, 226, 226);
+  transition: all ease-in-out 0.1s;
+  opacity: 0;
+  z-index: -1;
+}
+
+.nav-btns svg {
+  fill: rgb(25, 226, 226);
+}
+#left-nav {
+  padding-right: 1rem;
+}
+
+/* #left-nav:active::before{
+    opacity: 1;
+} */
+
+#right-nav {
+  padding-left: 1rem;
+}
+#left-nav:hover::before,
+#right-nav:hover::before {
+  border-color: rgb(25, 226, 226);
+  opacity: 1;
+  animation: rotateCircle 1.2s alternate infinite;
+}
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg) scale(0.5);
+    opacity: .5;
+  }
+  to {
+    transform: rotate(360deg) scale(0.8);
+    opacity: 1;
+  }
+}
+.btn {
+  width: 120px;
+  height: 60px;
+  background-color: rgb(217, 255, 242);
+  border: 3px solid transparent;
+  position: relative;
+  transition: all cubic-bezier(0.13, 1.07, 0.49, 1.14) 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(111, 214, 178);
+}
+
+.btn:hover button {
+  color: white;
+}
+
+.btn:hover::before,
+.btn:hover::after {
+  height: 50px;
+  width: 110px;
+  opacity: 1;
+}
+
+.btn::before,
+.btn::after {
+  transition: all cubic-bezier(0, 0.63, 0.29, 1.1) 0.2s;
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-color: rgba(217, 255, 242, 0);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.btn::before {
+  border-left: 3px solid red;
+  border-bottom: 3px solid red;
+
+  bottom: -10px;
+  left: -10px;
+}
+
+.btn::after {
+  border-top: 3px solid red;
+  border-right: 3px solid red;
+  top: -10px;
+  right: -10px;
+}
+
+.btn button {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
